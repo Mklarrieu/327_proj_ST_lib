@@ -2,8 +2,8 @@
 /*
  * Functions.cpp
  *
- *  Created on: Nov 5, 2017
- *      Author: keith
+ *  Created on: Nov 19, 2019
+ *      Author: Madeleine Larrieu
  */
 #include <iostream>
 #include <memory>
