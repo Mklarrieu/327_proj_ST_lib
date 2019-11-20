@@ -15,34 +15,43 @@ std::unique_ptr<Watch> pWatch;
 
 Smalltalk::Smalltalk(std::string myNationality, int iPerson){
 
-	nationality = myNationality;
 	this->iPerson = iPerson;
 	current_phrase = 0;
 	pWatch = 0;
 
 }
 
-std::string saySomething(){
-	std::string base = nationality + " " + iPerson + ":";
-	for(Smalltalk &st : mySmalltalk){
+Smalltalk::~Smalltalk(){
 
-	}
-	return NULL;
+}
+
+std::string saySomething(){
+//	std::string base = nationality + " " + iPerson + ":";
+	return "";
 }
 
 std::string getTime(){
-
-	return NULL;
+	return pWatch.get()->getTime();
 
 }
 
 std::unique_ptr<Watch> takeWatch(){
-
-
+//	if(pWatch != 0){
+//		std::unique_ptr<Watch> twatch = std::move(pWatch);
+//		pWatch = 0;
+//		return twatch;
+//	}
+//	else{
+//	return pWatch;
+//	}
 	return 0;
 }
 
-bool giveWatch(std::unique_ptr<Watch> &pWatch){
+bool giveWatch(std::unique_ptr<Watch> &tWatch){
+	if(pWatch == 0){
+		pWatch = std::move(tWatch);
+		return true;
+	}
 
 	return false;
 }
