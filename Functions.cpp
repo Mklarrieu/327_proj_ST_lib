@@ -26,16 +26,41 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 
 	std::vector<std::unique_ptr<Smalltalk>> st;
 		//add brits to vector
+	int numPerson = 1;
+//	std::unique_ptr<Smalltalk> ptr(new Smalltalk_Brit(numPerson));
+	//st.emplace_back(new Smalltalk_Brit(numPerson));
+//	int numPerson = 1;
+	for(int i = 0; i < numBrit; i++){
+		st.emplace_back(new Smalltalk_Brit(numPerson));
+		numPerson++;
+	}
 
+	numPerson = 1;
 		//add americans  to vector
+	for(int i = 0; i < numAmerican; i++){
+			st.emplace_back(new Smalltalk_American(numPerson));
+			numPerson++;
+		}
+	numPerson = 1;
 
 		//add american donut enthusiest  to vector
+	for(int i = 0; i < numbAmericanDonutEnthusiest; i++){
+		st.emplace_back(new ST_American_DonutEnthusiest(numPerson));
+			numPerson++;
+		}
 
 		//create some watches (as long as number watches <= numb people)
 		//then give the watches away to first NUM_WATCHES people in the vector
 		// when you are finished using the vector you return
 		//from this function(see Smalltalk header for hints)
-
+	int totalPeople = numBrit + numbAmericanDonutEnthusiest + numAmerican;
+	if(numWatches <= totalPeople){
+		int watchesGiven = 0;
+		for(int i = 0; i < numWatches; i++){
+			std::unique_ptr<Watch> w = std::unique_ptr<Watch>(new Watch());
+			st.at(i)->giveWatch(w);
+		}
+	}
 		//return your vector
 	return st;
 }

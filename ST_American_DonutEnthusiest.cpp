@@ -10,11 +10,18 @@
 
 ST_American_DonutEnthusiest::ST_American_DonutEnthusiest(int i):Smalltalk_American(AMERICAN_DE, i){
 
+	this->populatePhrases();
 }
 
 ST_American_DonutEnthusiest::~ST_American_DonutEnthusiest(){
 
 }
-void populatePhrases(){
+void ST_American_DonutEnthusiest::populatePhrases(){
 
+	Smalltalk_American::populatePhrases();
+	Smalltalk::mySmallTalk.push_back(AMERICAN_DE_PHRASE_1);
+	Smalltalk::mySmallTalk.push_back(AMERICAN_DE_PHRASE_2);
+	Smalltalk::mySmallTalk.push_back(AMERICAN_DE_PHRASE_3);
+	Smalltalk::mySmallTalk.push_back(AMERICAN_DE_PHRASE_4);
+	Smalltalk::mySmallTalk.push_back(AMERICAN_DE_PHRASE_5);
 }
