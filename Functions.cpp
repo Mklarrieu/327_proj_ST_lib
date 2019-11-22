@@ -27,9 +27,6 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	std::vector<std::unique_ptr<Smalltalk>> st;
 		//add brits to vector
 	int numPerson = 1;
-//	std::unique_ptr<Smalltalk> ptr(new Smalltalk_Brit(numPerson));
-	//st.emplace_back(new Smalltalk_Brit(numPerson));
-//	int numPerson = 1;
 	for(int i = 0; i < numBrit; i++){
 		st.emplace_back(new Smalltalk_Brit(numPerson));
 		numPerson++;
@@ -57,6 +54,12 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	if(numWatches <= totalPeople){
 		int watchesGiven = 0;
 		for(int i = 0; i < numWatches; i++){
+			std::unique_ptr<Watch> w = std::unique_ptr<Watch>(new Watch());
+			st.at(i)->giveWatch(w);
+		}
+	}
+	else {
+		for(int i = 0; i < totalPeople; i++){
 			std::unique_ptr<Watch> w = std::unique_ptr<Watch>(new Watch());
 			st.at(i)->giveWatch(w);
 		}
